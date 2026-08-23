@@ -4,6 +4,9 @@ A system tray icon for Windows that opens a menu of your commands on click: laun
 
 Nothing to install — only the PowerShell built into Windows is required.
 
+<img width="221" height="364" alt="image" src="https://github.com/user-attachments/assets/e4f64515-038c-4729-a787-d48241a85406" />
+<img width="777" height="635" alt="image" src="https://github.com/user-attachments/assets/fc328901-c1fb-4262-b625-3615e1278c01" />
+
 ## Features
 
 - Native tray icon (left/right click opens the menu)
