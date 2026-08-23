@@ -1,0 +1,115 @@
+﻿{
+    // Tray icon: "file.ico", "shell32.dll,44" or "imageres.dll,-109".
+    "icon": "imageres.dll,76",
+
+    // Tooltip shown on hover.
+    "tooltip": "My Commands",
+
+    // Menu style: "text" (text with icons) | "icons" (large icons).
+    "mode": "text",
+
+    // Default working directory for PowerShell/CMD windows ("%USERPROFILE%", "C:\\path").
+    "defaultCwd": "%USERPROFILE%",
+
+    // Commands. Fields:
+    //   name - label; icon - icon; shell - powershell|pwsh|cmd|auto;
+    //   command - single command OR commands - array of commands (single session);
+    //   window - hidden|normal|minimized; cwd - custom directory (otherwise defaultCwd);
+    //   keepOpen - keep window open; confirm - confirmation prompt;
+    //   notify - notification on completion; separatorAfter - separator after item.
+    "commands": [
+        {
+            "name": "Empty Recycle Bin",
+            "icon": "imageres.dll,54",
+            "shell": "powershell",
+            "command": "Clear-RecycleBin -Force -ErrorAction SilentlyContinue",
+            "window": "hidden",
+            "notify": true
+        },
+
+        {
+            "name": "Show IP Address",
+            "icon": "shell32.dll,220",
+            "shell": "cmd",
+            "command": "ipconfig /all",
+            "window": "normal",
+            "separatorAfter": true
+        },
+
+        {
+            "name": "Open Explorer Here",
+            "icon": "shell32.dll,21",
+            "shell": "cmd",
+            "command": "explorer \"%CD%\"",
+            "window": "hidden"
+        },
+
+        {
+            "name": "Notepad",
+            "icon": "imageres.dll,-102",
+            "shell": "cmd",
+            "command": "notepad",
+            "window": "hidden"
+        },
+
+        {
+            "name": "Task Manager",
+            "icon": "taskmgr.exe",
+            "shell": "auto",
+            "command": "taskmgr.exe",
+            "window": "hidden"
+        },
+
+        {
+            "name": "Clear Clipboard",
+            "icon": "shell32.dll,134",
+            "shell": "powershell",
+            "command": "Set-Clipboard -Value ''",
+            "window": "hidden",
+            "notify": true,
+            "separatorAfter": true
+        },
+
+        {
+            "name": "Sleep",
+            "icon": "imageres.dll,28",
+            "shell": "cmd",
+            "command": "rundll32.exe powrprof.dll,SetSuspendState 0,1,0",
+            "window": "hidden",
+            "confirm": true
+        },
+
+        {
+            "name": "Shut Down PC in 1 Minute",
+            "icon": "shell32.dll,27",
+            "shell": "cmd",
+            "command": "shutdown /s /t 60",
+            "window": "hidden",
+            "confirm": true,
+            "notify": true
+        },
+
+        {
+            "name": "Cancel Shutdown",
+            "icon": "shell32.dll,206",
+            "shell": "cmd",
+            "command": "shutdown /a",
+            "window": "hidden",
+            "notify": true,
+            "separatorAfter": true
+        },
+
+        {
+            "name": "Restart Explorer",
+            "icon": "explorer.exe",
+            "shell": "powershell",
+            "commands": [
+                "Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue",
+                "Start-Sleep -Milliseconds 500",
+                "Start-Process explorer.exe"
+            ],
+            "window": "hidden",
+            "separatorAfter": true
+        }
+    ]
+}
